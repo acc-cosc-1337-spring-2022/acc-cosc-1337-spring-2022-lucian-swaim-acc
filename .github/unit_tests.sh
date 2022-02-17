@@ -1,3 +1,3 @@
 cd ../build;
-cd test/examples_test/09_module_test;
+cd test/homework_test/03_decisions_test/03_decisions_test.cpp;
 ./ex_09_tests -s;
