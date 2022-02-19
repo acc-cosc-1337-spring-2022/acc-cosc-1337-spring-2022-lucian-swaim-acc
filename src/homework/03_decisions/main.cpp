@@ -24,7 +24,7 @@ Display:
 GPA 3.0
 
 */
-int main() 
+/* int main() 
 {
 	string letter_grade;
 	int credit_hours, sum_credit_hours = 0, sum_credit_points = 0;
@@ -53,6 +53,66 @@ int main()
 
 	double gpa = calculate_gpa(sum_credit_hours, sum_credit_points);
 	cout << "GPA: " << gpa;
+
+	return 0;
+} */
+
+
+int main()
+{	
+	int userInput;
+	
+	// Printing the menu
+	cout << 
+	"	MAIN MENU\n\n" <<
+	"1-Letter grade using if\n" <<
+	"2-Letter grade using switch\n" <<
+	"3-Exit\n";
+	cin >> userInput;
+
+
+	// Running the if function
+	if (userInput == 1)
+	{
+		cout << "===Letter Grade evaluation using If Else-If statements===\n";
+		cout << "Enter a number grade between 0 and 100 (inclusive): ";
+		cin >> userInput;
+
+
+		if ((userInput >= 0) && (userInput <= 100)) 
+		{
+			cout << "Your letter grade is: " << get_letter_grade_using_if(userInput) << "\n";
+		}
+		else
+		{
+			cout << "Your number is out of range.\n";
+		}
+
+	}
+
+	// Running the switch function
+	else if (userInput == 2)
+	{
+		cout << "===Letter Grade evaluation using a switch statement===\n";
+		cout << "Enter a number grade between 0 and 100 (inclusive): ";
+		cin >> userInput;
+
+		if ((userInput >= 0) && (userInput <= 100)) 
+		{
+			cout << "Your letter grade is: " << get_letter_grade_using_switch(userInput) << "\n";
+		}
+		else
+		{
+			cout << "Your number is out of range.\n";
+		}
+		
+	// Exit
+	}
+	else
+	{
+		cout << "Exiting...";
+	}
+
 
 	return 0;
 }
