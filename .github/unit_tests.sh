@@ -1,3 +1,3 @@
 cd ../build;
-cd test/homework_test/04_iteration_test;
-./hw_04_tests -s;
+cd test/classwork_test/05_assign_test;
+./cw_05_tests -s;
