@@ -28,3 +28,44 @@ c. return string
 
 */
 
+
+
+
+//write the function code for the factorial and gcd functions using 
+//a loop of your choice.  Do not use a recursive solution to solve this problem.
+
+int factorial (int num)
+{
+    int sum = 1;
+    
+        while (num > 0)
+        {
+             sum *= num;
+             num -= 1;
+        }
+
+return sum;
+}
+
+
+int gcd (int num1 , int num2)
+{
+    int swap_placeholder;
+
+    while (!(num1 == num2))
+    {
+        if (num1 < num2)
+        {
+            //swap num1 and num2
+            swap_placeholder = num1;
+            num1 = num2;
+            num2 = swap_placeholder;
+        }
+        else if (num1 > num2)
+        {
+            num1 -= num2;
+        }
+    }
+
+    return num1;
+}
