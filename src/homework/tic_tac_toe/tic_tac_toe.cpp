@@ -5,22 +5,22 @@ using std::string; using std::cout;
 
 bool TicTacToe::game_over()
 {
-    if      (check_row_win)
+    if      (check_row_win() == true)
     {
         set_winner();
         return true;
     }
-    else if (check_column_win)
+    else if (check_column_win() == true)
     {
         set_winner();
         return true;
     }
-    else if (check_diagonal_win)
+    else if (check_diagonal_win() == true)
     {
         set_winner();
         return true;
     }
-    else if (check_board_full)
+    else if (check_board_full() == true)
     {
         winner = "C";
         return true;
@@ -114,6 +114,10 @@ bool TicTacToe::check_row_win()
     {
         return true;
     }
+    else
+    {
+        return false;
+    }
 }
 
 bool TicTacToe::check_column_win()
@@ -144,6 +148,10 @@ bool TicTacToe::check_column_win()
     {
         return true;
     }
+    else
+    {
+        return false;
+    }
 }
 
 bool TicTacToe::check_diagonal_win()
@@ -166,6 +174,11 @@ bool TicTacToe::check_diagonal_win()
     {
         return true;
     }
+    else
+    {
+        return false;
+    }
+    
 }
 
 void  TicTacToe::set_winner()
