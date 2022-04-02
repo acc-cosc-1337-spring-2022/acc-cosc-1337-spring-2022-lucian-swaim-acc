@@ -131,7 +131,7 @@ bool TicTacToe::check_column_win()
     {
         return true;
     }
-    else if ( (pegs[2] == "X") && (pegs[5] == "X") && (pegs[7] == "X") )
+    else if ( (pegs[2] == "X") && (pegs[5] == "X") && (pegs[8] == "X") )
     {
         return true;
     }
