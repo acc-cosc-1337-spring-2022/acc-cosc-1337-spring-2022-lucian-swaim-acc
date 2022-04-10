@@ -233,8 +233,12 @@ TEST_CASE("Test get_winner_total manager function")
 	game.mark_board(1); // O's turn
 	game.mark_board(2); // X's turn
 	game.mark_board(3); // O's turn
-	game.mark_board(5); // X's turn
+	game.mark_board(7); // X's turn
+	game.mark_board(8); // O's turn
+	game.mark_board(9); // X's turn
 	game.mark_board(4); // O's turn
+	game.mark_board(5); // X's turn
+	game.mark_board(6); // O's turn
 	game.game_over();
 	REQUIRE ( ((game.get_winner() != "X") && (game.get_winner() != "O")) == true );
 	REQUIRE ( game.get_winner() == "C");
