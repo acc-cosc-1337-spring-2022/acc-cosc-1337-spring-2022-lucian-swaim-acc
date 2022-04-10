@@ -136,7 +136,7 @@ bool TicTacToe::check_column_win()
     {
         return true;
     }
-    else if ( (pegs[2] == "O") && (pegs[5] == "O") && (pegs[7] == "O") )
+    else if ( (pegs[2] == "O") && (pegs[5] == "O") && (pegs[8] == "O") )
     {
         return true;
     }
