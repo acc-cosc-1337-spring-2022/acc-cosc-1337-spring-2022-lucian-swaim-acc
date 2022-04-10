@@ -228,7 +228,7 @@ TEST_CASE("Test get_winner_total manager function")
 	manager.save_game(game);
 
 // Game 3: Tie 
-	game.start_game("O");
+	game.start_game("X");
 
 	game.mark_board(1); // O's turn
 	game.mark_board(2); // X's turn
