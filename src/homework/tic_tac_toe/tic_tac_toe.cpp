@@ -1,7 +1,7 @@
 //cpp
 #include "tic_tac_toe.h"
 
-using std::string; using std::cout;
+using std::string; using std::cout; using std::cin;
 
 bool TicTacToe::game_over()
 {
@@ -43,14 +43,6 @@ void TicTacToe::mark_board(int position)
 {
     pegs[position - 1] = player;
     set_next_player();
-}
-
-void TicTacToe::display_board()const
-{
-    for(int i=0 ; i < 9 ; i+=3)
-    {
-        cout << pegs[i] << "|" << pegs[i+1] << "|" << pegs[i+2] << "\n";
-    }
 }
 
 void TicTacToe::set_next_player()
@@ -193,3 +185,39 @@ void  TicTacToe::set_winner()
     }
     
 }
+
+// Operator Overloaders
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game) // cout overloader
+{
+    for(int i=0 ; i < 9 ; i+=3)
+    {
+        cout << game.pegs[i] << "|" << game.pegs[i+1] << "|" << game.pegs[i+2] << "\n";
+    }    
+    return out;
+}
+
+std::istream& operator>>(std::istream& inp, TicTacToe& game) // cin overloader
+{
+    int position;
+
+    cout << "Enter position [1-9]: ";
+    inp >> position;
+
+    while ( (position < 1) || (position > 9) )
+    {
+        cout << "Invalid input. Please pick a position between 1 and 9 (inclusive)\n";
+        inp >> position;
+    }
+
+    game.mark_board(position);
+    return inp;
+}
+
+// Deprecated member function of older version
+/* void TicTacToe::display_board()const
+{
+    for(int i=0 ; i < 9 ; i+=3)
+    {
+        cout << pegs[i] << "|" << pegs[i+1] << "|" << pegs[i+2] << "\n";
+    }
+} */

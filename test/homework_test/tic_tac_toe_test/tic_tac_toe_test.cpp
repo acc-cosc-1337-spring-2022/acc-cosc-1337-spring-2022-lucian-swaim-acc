@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -189,4 +190,63 @@ TEST_CASE("Test win by diagonally from bottom left")
 	game.mark_board(3); // X's turn
 
 	REQUIRE ( true == game.game_over() );
+}
+
+TEST_CASE("Test get_winner_total manager function")
+{
+	/* 	
+	Test TicTacToeManager's get_winner_total function
+	Simulate playing 3 or more games with X, O, & C as winners
+	Verify that x_win, o_win, & ties tally correctly
+	*/
+
+	TicTacToeManager manager;
+	TicTacToe game;
+
+//Game 1: X Wins
+	game.start_game("X");
+
+	game.mark_board(1); // X's turn
+	game.mark_board(9); // O's turn
+	game.mark_board(2); // X's turn
+	game.mark_board(7); // O's turn
+	game.mark_board(3); // X's turn
+	game.game_over();
+	REQUIRE( game.get_winner() == "X");
+	manager.save_game(game);
+
+// Game 2: O Wins
+	game.start_game("O");
+
+	game.mark_board(1); // O's turn
+	game.mark_board(9); // X's turn
+	game.mark_board(2); // O's turn
+	game.mark_board(7); // X's turn
+	game.mark_board(3); // O's turn
+	game.game_over();
+	REQUIRE ( game.get_winner() == "O");
+	manager.save_game(game);
+
+// Game 3: Tie 
+	game.start_game("O");
+
+	game.mark_board(1); // O's turn
+	game.mark_board(2); // X's turn
+	game.mark_board(3); // O's turn
+	game.mark_board(5); // X's turn
+	game.mark_board(4); // O's turn
+	game.game_over();
+	REQUIRE ( ((game.get_winner() != "X") && (game.get_winner() != "O")) == true );
+	REQUIRE ( game.get_winner() == "C");
+	manager.save_game(game);
+
+// Check manager totals
+	int o_wins = 0;
+	int x_wins = 0;
+	int ties = 0;
+	manager.get_winner_totals(o_wins, x_wins, ties);
+
+	REQUIRE(o_wins == 1);
+	REQUIRE(x_wins == 1);
+	REQUIRE(ties == 1);
 }
