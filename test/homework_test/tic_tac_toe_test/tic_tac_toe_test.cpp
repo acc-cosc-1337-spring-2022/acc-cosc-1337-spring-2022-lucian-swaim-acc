@@ -240,7 +240,6 @@ TEST_CASE("Test get_winner_total manager function")
 	game.mark_board(5); // X's turn
 	game.mark_board(6); // O's turn
 	game.game_over();
-	REQUIRE ( ((game.get_winner() != "X") && (game.get_winner() != "O")) == true );
 	REQUIRE ( game.get_winner() == "C");
 	manager.save_game(game);
 
