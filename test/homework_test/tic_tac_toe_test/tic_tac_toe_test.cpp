@@ -79,37 +79,37 @@ TEST_CASE("Test TicTacToe4 game over if 16 slots are selected")
 	game = std::make_unique<TicTacToe4>();
 
 	game->start_game("X");
-	game->mark_board(1);
+	game->mark_board(1);  // X's turn
 	REQUIRE(false == game->game_over());
-	game->mark_board(2);
+	game->mark_board(2); // O's turn
 	REQUIRE(false == game->game_over());
-	game->mark_board(3);
+	game->mark_board(3); // X's turn
 	REQUIRE(false == game->game_over());
-	game->mark_board(4);
+	game->mark_board(4); // O's turn
 	REQUIRE(false == game->game_over());
-	game->mark_board(7);
+	game->mark_board(7); // X's turn
 	REQUIRE(false == game->game_over());
-	game->mark_board(5);
+	game->mark_board(5); // O's turn
 	REQUIRE(false == game->game_over());
-	game->mark_board(8);
+	game->mark_board(8); // X's turn
 	REQUIRE(false == game->game_over());
-	game->mark_board(6);
+	game->mark_board(6); // O's turn
 	REQUIRE(false == game->game_over());
-	game->mark_board(9);
-	REQUIRE(true == game->game_over());
-	game->mark_board(11);
-	REQUIRE(true == game->game_over());
-	game->mark_board(10);
-	REQUIRE(true == game->game_over());
-	game->mark_board(12);
-	REQUIRE(true == game->game_over());
-	game->mark_board(14);
-	REQUIRE(true == game->game_over());
-	game->mark_board(13);
-	REQUIRE(true == game->game_over());
-	game->mark_board(16);
-	REQUIRE(true == game->game_over());
-	game->mark_board(15);
+	game->mark_board(9); // X's turn   
+	REQUIRE(false == game->game_over());
+	game->mark_board(11); // O's turn
+	REQUIRE(false == game->game_over());
+	game->mark_board(10); // X's turn
+	REQUIRE(false == game->game_over());
+	game->mark_board(12); // O's turn
+	REQUIRE(false == game->game_over());
+	game->mark_board(14); // X's turn
+	REQUIRE(false == game->game_over());
+	game->mark_board(13); // O's turn
+	REQUIRE(false == game->game_over());
+	game->mark_board(16); // X's turn
+	REQUIRE(false == game->game_over());
+	game->mark_board(15); // O's turn
 	REQUIRE(true == game->game_over());
 
 	REQUIRE(game->get_winner() == "C");
@@ -510,10 +510,15 @@ TEST_CASE("Test TT3 get_winner_total manager function")
 	game->start_game("X");
 
 	game->mark_board(1); // X's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(9); // O's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(2); // X's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(7); // O's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(3); // X's turn
+	REQUIRE(true == game->game_over());
 	game->game_over();
 	REQUIRE( game->get_winner() == "X");
 	manager.save_game(game);
@@ -522,10 +527,15 @@ TEST_CASE("Test TT3 get_winner_total manager function")
 	game->start_game("O");
 
 	game->mark_board(1); // O's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(9); // X's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(2); // O's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(7); // X's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(3); // O's turn
+	REQUIRE(true == game->game_over());
 	game->game_over();
 	REQUIRE ( game->get_winner() == "O");
 	manager.save_game(game);
@@ -534,14 +544,23 @@ TEST_CASE("Test TT3 get_winner_total manager function")
 	game->start_game("X");
 
 	game->mark_board(1); // O's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(2); // X's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(3); // O's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(7); // X's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(8); // O's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(9); // X's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(4); // O's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(5); // X's turn
+	REQUIRE(false == game->game_over());
 	game->mark_board(6); // O's turn
+	REQUIRE(true == game->game_over());
 	game->game_over();
 	REQUIRE ( game->get_winner() == "C");
 	manager.save_game(game);
