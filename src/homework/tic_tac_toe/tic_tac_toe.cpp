@@ -205,14 +205,12 @@ void  TicTacToe::set_winner()
 // Operator Overloaders
 std::ostream& operator<<(std::ostream& out, const TicTacToe& game) // cout overloader
 {
-
     if      (game.pegs.size() == 9)
     {
         for(int i=0 ; i < 9 ; i+=3)
         {
             cout << game.pegs[i] << "|" << game.pegs[i+1] << "|" << game.pegs[i+2] << "\n";
         }    
-        return out;
     }
     else if (game.pegs.size() == 16)
     {
@@ -220,8 +218,8 @@ std::ostream& operator<<(std::ostream& out, const TicTacToe& game) // cout overl
         {
         cout << game.pegs[i] << "|" << game.pegs[i+1] << "|" << game.pegs[i+2] << "|" << game.pegs[i+3] << "\n";
         }    
-        return out;
     }
+    return out;
 }
 
 std::istream& operator>>(std::istream& inp, TicTacToe& game) // cin overloader
@@ -237,6 +235,7 @@ std::istream& operator>>(std::istream& inp, TicTacToe& game) // cin overloader
             cout << "Invalid input. Please pick a position between 1 and 9 (inclusive)\n";
             inp >> position;
         }
+        game.mark_board(position);
     }
 
     else if (game.pegs.size() == 16)
@@ -248,9 +247,9 @@ std::istream& operator>>(std::istream& inp, TicTacToe& game) // cin overloader
             cout << "Invalid input. Please pick a position between 1 and 16 (inclusive)\n";
             inp >> position;
         }
+        game.mark_board(position);
     }
     
-    game.mark_board(position);
     return inp;
 }
 
