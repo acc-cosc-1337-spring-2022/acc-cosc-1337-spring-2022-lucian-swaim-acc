@@ -505,9 +505,9 @@ TEST_CASE("Test get_winner_total manager function")
 
 	TicTacToeManager manager;
 	std::unique_ptr<TicTacToe> game;
-	game = std::make_unique<TicTacToe3>();
 
 //Game 1: X Wins
+	game = std::make_unique<TicTacToe3>();
 	game->start_game("X");
 
 	game->mark_board(1); // X's turn
@@ -520,6 +520,7 @@ TEST_CASE("Test get_winner_total manager function")
 	manager.save_game(game);
 
 // Game 2: O Wins
+	game = std::make_unique<TicTacToe3>();
 	game->start_game("O");
 
 	game->mark_board(1); // O's turn
@@ -532,6 +533,7 @@ TEST_CASE("Test get_winner_total manager function")
 	manager.save_game(game);
 
 // Game 3: Tie 
+	game = std::make_unique<TicTacToe3>();
 	game->start_game("X");
 
 	game->mark_board(1); // O's turn
