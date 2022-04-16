@@ -3,6 +3,17 @@
 
 using std::string; using std::cout; using std::cin;
 
+TicTacToe::TicTacToe(int size) : pegs(size^size, " ") // Constructor
+{
+    /* 
+    If you're wondering why there's no code in here:
+    The Constructor initializes the pegs vector in the line above ; no other code needed
+
+    Example: SomeConstructor(int s) :some_vector(s*s, " " ){}
+    //this will initialize some_vector to s*s elements of " " 
+    */
+}
+
 bool TicTacToe::game_over()
 {
     if      (check_row_win() == true)
@@ -80,6 +91,8 @@ void TicTacToe::clear_board()
 
 bool TicTacToe::check_row_win()
 {
+    return false;
+/* Deprecated code
     // X row win
     if      ( (pegs[0] == "X") && (pegs[1] == "X") && (pegs[2] == "X") )
     {
@@ -109,11 +122,13 @@ bool TicTacToe::check_row_win()
     else
     {
         return false;
-    }
+    } */
 }
 
 bool TicTacToe::check_column_win()
 {
+    return false;
+/* Deprecated code
     // X column win
     if      ( (pegs[0] == "X") && (pegs[3] == "X") && (pegs[6] == "X") )
     {
@@ -143,11 +158,13 @@ bool TicTacToe::check_column_win()
     else
     {
         return false;
-    }
+    }*/
 }
 
 bool TicTacToe::check_diagonal_win()
 {
+    return false;
+/*  Deprecated code
     // X diagonal win
     if      ( (pegs[0] == "X") && (pegs[4] == "X") && (pegs[8] == "X") )
     {
@@ -169,8 +186,7 @@ bool TicTacToe::check_diagonal_win()
     else
     {
         return false;
-    }
-    
+    } */
 }
 
 void  TicTacToe::set_winner()
@@ -189,26 +205,51 @@ void  TicTacToe::set_winner()
 // Operator Overloaders
 std::ostream& operator<<(std::ostream& out, const TicTacToe& game) // cout overloader
 {
-    for(int i=0 ; i < 9 ; i+=3)
+
+    if      (game.pegs.size() == 9)
     {
-        cout << game.pegs[i] << "|" << game.pegs[i+1] << "|" << game.pegs[i+2] << "\n";
-    }    
-    return out;
+        for(int i=0 ; i < 9 ; i+=3)
+        {
+            cout << game.pegs[i] << "|" << game.pegs[i+1] << "|" << game.pegs[i+2] << "\n";
+        }    
+        return out;
+    }
+    else if (game.pegs.size() == 16)
+    {
+        for(int i=0 ; i < 16 ; i+=4)
+        {
+        cout << game.pegs[i] << "|" << game.pegs[i+1] << "|" << game.pegs[i+2] << "|" << game.pegs[i+3] << "\n";
+        }    
+        return out;
+    }
 }
 
 std::istream& operator>>(std::istream& inp, TicTacToe& game) // cin overloader
 {
     int position;
 
-    cout << "Enter position [1-9]: ";
-    inp >> position;
-
-    while ( (position < 1) || (position > 9) )
-    {
-        cout << "Invalid input. Please pick a position between 1 and 9 (inclusive)\n";
+    if      (game.pegs.size() == 9)
+    { 
+        cout << "Enter position [1-9]: ";
         inp >> position;
+        while ( (position < 1) || (position > 9) )
+        {
+            cout << "Invalid input. Please pick a position between 1 and 9 (inclusive)\n";
+            inp >> position;
+        }
     }
 
+    else if (game.pegs.size() == 16)
+    {
+        cout << "Enter position [1-16]: ";
+        inp >> position;
+        while ( (position < 1) || (position > 16) )
+        {
+            cout << "Invalid input. Please pick a position between 1 and 16 (inclusive)\n";
+            inp >> position;
+        }
+    }
+    
     game.mark_board(position);
     return inp;
 }

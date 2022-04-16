@@ -25,20 +25,20 @@ void TicTacToeManager::get_winner_totals(int& o, int& x, int& t)
     t = ties;
 }
 
-void TicTacToeManager::save_game(TicTacToe b)
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& b)
 {
-    games.push_back(b);
-    update_winner_count(b.get_winner());
+    update_winner_count(b->get_winner());
+    games.push_back(std::move(b));
 }
 
 // Operator Overloaders
 std::ostream& operator<<(std::ostream& out, TicTacToeManager& manager)
 {   
     cout << "===== Game History =====\n";
-    for (int ele = 0; ele < manager.games.size(); ele++)
+    for (auto ele = 0; ele < manager.games.size(); ele++)
     {
         cout << "=== Game #" << ele+1 << " ===\n";
-        out << manager.games[ele];
+        out << *manager.games[ele];
     }
     return out;
 }
