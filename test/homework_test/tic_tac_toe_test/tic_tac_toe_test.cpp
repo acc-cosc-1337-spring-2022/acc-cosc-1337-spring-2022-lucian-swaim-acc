@@ -520,7 +520,7 @@ TEST_CASE("Test TT3 get_winner_total manager function")
 	REQUIRE(false == game->game_over());
 	game->mark_board(3); // X's turn
 	REQUIRE(true == game->game_over());
-	game->game_over();
+	//game->game_over();
 	REQUIRE( game->get_winner() == "X");
 	manager.save_game(game);
 
@@ -537,7 +537,7 @@ TEST_CASE("Test TT3 get_winner_total manager function")
 	REQUIRE(false == game->game_over());
 	game->mark_board(3); // O's turn
 	REQUIRE(true == game->game_over());
-	game->game_over();
+	//game->game_over();
 	REQUIRE ( game->get_winner() == "O");
 	manager.save_game(game);
 
@@ -562,7 +562,7 @@ TEST_CASE("Test TT3 get_winner_total manager function")
 	REQUIRE(false == game->game_over());
 	game->mark_board(6); // O's turn
 	REQUIRE(true == game->game_over());
-	game->game_over();
+	//game->game_over();
 	REQUIRE ( game->get_winner() == "C");
 	manager.save_game(game);
 
