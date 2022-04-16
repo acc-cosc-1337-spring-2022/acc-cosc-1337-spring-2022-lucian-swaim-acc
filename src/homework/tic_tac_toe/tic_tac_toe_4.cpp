@@ -122,7 +122,7 @@ false
 bool TicTacToe4::check_diagonal_win()
 {
     // X diagonal win
-    if      ( (pegs[0] == "X") && (pegs[10] == "X") && (pegs[5] == "X") && (pegs[15] == "X"))
+    if      ( (pegs[0] == "X") && (pegs[5] == "X") && (pegs[10] == "X") && (pegs[15] == "X"))
     {
         return true;
     }
@@ -132,7 +132,7 @@ bool TicTacToe4::check_diagonal_win()
     }
 
     // O diagonal win
-    else if ( (pegs[3] == "O") && (pegs[6] == "O") && (pegs[9] == "O") && (pegs[12] == "O"))
+    else if ( (pegs[0] == "O") && (pegs[5] == "O") && (pegs[10] == "O") && (pegs[15] == "O"))
     {
         return true;
     }

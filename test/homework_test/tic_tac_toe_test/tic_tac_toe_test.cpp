@@ -494,7 +494,7 @@ TEST_CASE("Test TTT4 win diagonally from top right")
 }
 
 // TicTacToeManager 
-/*
+
 TEST_CASE("Test TT3 get_winner_total manager function")
 {
 	
@@ -576,4 +576,3 @@ TEST_CASE("Test TT3 get_winner_total manager function")
 	REQUIRE(x_wins == 1);
 	REQUIRE(ties == 1);
 }
-*/
