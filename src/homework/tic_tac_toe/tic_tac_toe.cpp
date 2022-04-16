@@ -3,7 +3,7 @@
 
 using std::string; using std::cout; using std::cin;
 
-TicTacToe::TicTacToe(int size) : pegs(size^size, " ") // Constructor
+TicTacToe::TicTacToe(int size) : pegs(size*size, " ") // Constructor
 {
     /* 
     If you're wondering why there's no code in here:
