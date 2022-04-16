@@ -26,15 +26,14 @@ public:
 
 protected:
     std::vector<std::string> pegs;
+    std::string player;
+    std::string winner;
 
     virtual bool check_row_win();
     virtual bool check_column_win();
     virtual bool check_diagonal_win();
 
 private: 
-    //Private vars
-    std::string player;
-    std::string winner;
 
     // Private funcs
     void set_winner();
