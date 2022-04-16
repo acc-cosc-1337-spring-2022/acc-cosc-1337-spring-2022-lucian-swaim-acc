@@ -9,17 +9,37 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-TEST_CASE("Test first player set to X")
+TEST_CASE("Test TTT3 first player set to X")
 {
 	std::unique_ptr<TicTacToe> game;
+	game = std::make_unique<TicTacToe3>();
 	game->start_game("X");
 
 	REQUIRE( game->get_player() == "X" );
 }
 
-TEST_CASE("Test first player set to O")
+TEST_CASE("Test TTT3 irst player set to O")
 {
 	std::unique_ptr<TicTacToe> game;
+	game = std::make_unique<TicTacToe3>();
+	game->start_game("O");
+
+	REQUIRE( game->get_player() == "O" );
+}
+
+TEST_CASE("Test TTT4 first player set to X")
+{
+	std::unique_ptr<TicTacToe> game;
+	game = std::make_unique<TicTacToe4>();
+	game->start_game("X");
+
+	REQUIRE( game->get_player() == "X" );
+}
+
+TEST_CASE("Test TTT4 irst player set to O")
+{
+	std::unique_ptr<TicTacToe> game;
+	game = std::make_unique<TicTacToe4>();
 	game->start_game("O");
 
 	REQUIRE( game->get_player() == "O" );
