@@ -494,7 +494,7 @@ TEST_CASE("Test TTT4 win diagonally from top right")
 }
 
 // TicTacToeManager
-TEST_CASE("Test get_winner_total manager function")
+TEST_CASE("Test TT3 get_winner_total manager function")
 {
 	/* 	
 	Test TicTacToeManager's get_winner_total function
@@ -504,6 +504,7 @@ TEST_CASE("Test get_winner_total manager function")
 
 	TicTacToeManager manager;
 	std::unique_ptr<TicTacToe> game;
+	game = std::make_unique<TicTacToe3>();
 
 //Game 1: X Wins
 	game->start_game("X");
