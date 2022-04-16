@@ -493,14 +493,15 @@ TEST_CASE("Test TTT4 win diagonally from top right")
 	REQUIRE ( true == game->game_over() );
 }
 
-// TicTacToeManager
+// TicTacToeManager 
+/*
 TEST_CASE("Test TT3 get_winner_total manager function")
 {
-	/* 	
-	Test TicTacToeManager's get_winner_total function
-	Simulate playing 3 or more games with X, O, & C as winners
-	Verify that x_win, o_win, & ties tally correctly
-	*/
+	
+	//Test TicTacToeManager's get_winner_total function
+	//Simulate playing 3 or more games with X, O, & C as winners
+	//Verify that x_win, o_win, & ties tally correctly
+	
 
 	TicTacToeManager manager;
 	std::unique_ptr<TicTacToe> game;
@@ -575,3 +576,4 @@ TEST_CASE("Test TT3 get_winner_total manager function")
 	REQUIRE(x_wins == 1);
 	REQUIRE(ties == 1);
 }
+*/
