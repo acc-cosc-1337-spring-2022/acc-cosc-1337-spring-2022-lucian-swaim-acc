@@ -12,7 +12,9 @@ int main()
 	int size_choice;
 	char choice;
 
-	TicTacToeManager manager;
+	TicTacToeData data;
+
+	TicTacToeManager manager(data);
 	int o_wins = 0;
 	int x_wins = 0;
 	int ties = 0;

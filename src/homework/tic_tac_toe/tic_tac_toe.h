@@ -4,6 +4,7 @@ using std::cout;
 
 #include <string>
 #include <vector>
+#include <memory>
 
 
 //Header Guards
@@ -14,11 +15,13 @@ class TicTacToe
 {
 public:
     TicTacToe(int); // Constructor
+    TicTacToe (std::vector<std::string> p, std::string win) : pegs(p), winner(win){} // Constructor
     bool game_over();
     void start_game(std::string first_player);
     void mark_board(int position);
     std::string get_player()const{return player;}
     std::string get_winner(){return winner;}
+    std::vector<std::string> get_pegs()const{return pegs;}
 
     //Operator overloaders
     friend std::istream& operator>>(std::istream&, TicTacToe&);
