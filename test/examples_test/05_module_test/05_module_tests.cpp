@@ -8,14 +8,12 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 TEST_CASE("Die class 1 to 6 range checking")
 {
+	Die dice;
 
-	for (int i = 0 ; i < 6 ; i++)
+	for (int i = 0 ; i < 10 ; i++)
 	{
-		Die dice;
-
 		dice.roll();
 
 		REQUIRE(true == ((dice.rolled_value() >= 1) && (dice.rolled_value() <= 6)));
 	}
-
 }
