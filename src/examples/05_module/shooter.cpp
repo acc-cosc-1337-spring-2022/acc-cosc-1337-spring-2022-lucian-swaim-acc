@@ -1,46 +1,29 @@
 #include "shooter.h"
 
-Roll* Shooter::throw_die(Die& die01, Die& die02)
+Roll* Shooter::throw_die(Die& d1, Die& d2)
 {
-    Roll* rollObjPtr;
+    Roll* rollObj = new Roll(d1, d2);
 
-    rollObjPtr->roll_die();
+    rollObj->roll_die();
 
-    rolls.push_back(rollObjPtr);
+    rolls.push_back(rollObj);
 
-    return rollObjPtr;
+    return rollObj;
+}
+
+std::ostream& operator<<(std::ostream& out, const Shooter& shooterObj)
+{
+    for (auto i = 0; i < shooterObj.rolls.size(); i++)
+    {
+        out << shooterObj.rolls[i]->roll_value()<<"\n";
+    }
+    return out;
 }
 
 Shooter::~Shooter()
 {
-    for(int i = 0; i < rolls.size(); i++)
+    for(auto i = 0; i < rolls.size(); i++)
     {
         delete rolls[i];
     }
-}
-
-std::ostream& operator<<(std::ostream& out, const Shooter& shooter) // cout overloader
-{
-
-    for (int i = 0; i < shooter.rolls.size(); i++)
-    {
-        std::cout << shooter.rolls[i];
-    }
-    return out;
-    
-/*     if      (game.pegs.size() == 9)
-    {
-        for(int i=0 ; i < 9 ; i+=3)
-        {
-            cout << game.pegs[i] << "|" << game.pegs[i+1] << "|" << game.pegs[i+2] << "\n";
-        }    
-    }
-    else if (game.pegs.size() == 16)
-    {
-        for(int i=0 ; i < 16 ; i+=4)
-        {
-        cout << game.pegs[i] << "|" << game.pegs[i+1] << "|" << game.pegs[i+2] << "|" << game.pegs[i+3] << "\n";
-        }    
-    }
-    return out; */
 }

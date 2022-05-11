@@ -37,14 +37,14 @@ TEST_CASE("Test that shooter returns a roll & roll result between 2-12")
 {
 	for (int i = 0; i < 10; i++)
 	{
-		Shooter shtObj;
+		Shooter shootObj;
 		Die die1; die1.roll();
 		Die die2; die2.roll();
+		Roll *rollPtr;
 
-		Roll* throwResult;
-		throwResult = shtObj.throw_die(die1, die2);
+		rollPtr = shootObj.throw_die(die1, die2);
 
-		REQUIRE( true == (  (throwResult->roll_value() >= 2) && (throwResult->roll_value() <= 12)  ) );
-		delete throwResult;
+		REQUIRE( true == (  (rollPtr->roll_value() >= 2) && (rollPtr->roll_value() <= 12)  ) );
+		delete rollPtr;
 	}
 }
