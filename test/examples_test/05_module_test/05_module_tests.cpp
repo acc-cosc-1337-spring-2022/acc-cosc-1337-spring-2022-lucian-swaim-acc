@@ -45,5 +45,6 @@ TEST_CASE("Test that shooter returns a roll & roll result between 2-12")
 		throwResult = shtObj.throw_die(die1, die2);
 
 		REQUIRE( true == (  (throwResult->roll_value() >= 2) && (throwResult->roll_value() <= 12)  ) );
+		delete throwResult;
 	}
 }
