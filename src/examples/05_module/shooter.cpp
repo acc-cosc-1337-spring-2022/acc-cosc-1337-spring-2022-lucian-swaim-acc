@@ -22,8 +22,9 @@ std::ostream& operator<<(std::ostream& out, const Shooter& shooterObj)
 
 Shooter::~Shooter()
 {
-    for (auto ptr : rolls)
+    for (int i=0; i < rolls.size(); i++)
     {
-        delete ptr;
+        Roll* rollRef = rolls.at(i);
+        delete rollRef;
     }
 }
