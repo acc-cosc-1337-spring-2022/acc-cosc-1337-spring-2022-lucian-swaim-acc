@@ -13,7 +13,7 @@ Roll* Shooter::throw_die(Die& d1, Die& d2)
 
 std::ostream& operator<<(std::ostream& out, const Shooter& shooterObj)
 {
-    for (auto i = 0; i < shooterObj.rolls.size(); i++)
+    for (size_t i = 0; i < shooterObj.rolls.size(); i++)
     {
         out << shooterObj.rolls[i]->roll_value()<<"\n";
     }
@@ -22,7 +22,7 @@ std::ostream& operator<<(std::ostream& out, const Shooter& shooterObj)
 
 Shooter::~Shooter()
 {
-    for (int i=0; i < rolls.size(); i++)
+    for (size_t i=0; i < rolls.size(); i++)
     {
         Roll* rollRef = rolls.at(i);
         delete rollRef;
