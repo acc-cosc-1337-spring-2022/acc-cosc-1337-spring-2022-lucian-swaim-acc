@@ -2,6 +2,7 @@
 #include "catch.hpp"
 #include "die.h"
 #include "roll.h"
+#include "shooter.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -29,5 +30,20 @@ TEST_CASE("Roll class 2 to 12 range checking")
 	{
 		rollObj.roll_die();
 		REQUIRE( true == ( (rollObj.roll_value()) >= 2 && (rollObj.roll_value() <= 12) ));
+	}
+}
+
+TEST_CASE("Test that shooter returns a roll & roll result between 2-12")
+{
+	for (int i = 0; i < 10; i++)
+	{
+		Shooter shtObj;
+		Die die1; die1.roll();
+		Die die2; die2.roll();
+
+		Roll* throwResult;
+		throwResult = shtObj.throw_die(die1, die2);
+
+		REQUIRE( true == (  (throwResult->roll_value() >= 2) && (throwResult->roll_value() <= 12)  ) );
 	}
 }
