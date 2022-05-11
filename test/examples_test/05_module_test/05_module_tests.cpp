@@ -8,7 +8,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-TEST_CASE("Die class 1 to 6 range checking")
+TEST_CASE("Question 1: Die class 1 to 6 range checking")
 {
 	Die dice;
 
@@ -20,7 +20,7 @@ TEST_CASE("Die class 1 to 6 range checking")
 	}
 }
 
-TEST_CASE("Roll class 2 to 12 range checking")
+TEST_CASE("Question 2: Roll class 2 to 12 range checking")
 {
 	Die die01;
 	Die die02;
@@ -33,7 +33,7 @@ TEST_CASE("Roll class 2 to 12 range checking")
 	}
 }
 
-TEST_CASE("Test that shooter returns a roll & roll result between 2-12")
+TEST_CASE("Question 3: Test that shooter returns a roll & roll result between 2-12")
 {
 	for (int i = 0; i < 10; i++)
 	{
