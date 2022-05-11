@@ -3,7 +3,8 @@
 #include <stdlib.h>
 
 void Die::roll() {
-
-
-    roll_value = rand() % (6 + 1);
+    const int MAX = 6;
+    const int MIN = 1;
+    int range = MAX - MIN + 1;
+    roll_value = rand() % range + MIN;
 }
