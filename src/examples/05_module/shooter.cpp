@@ -20,6 +20,13 @@ std::ostream& operator<<(std::ostream& out, const Shooter& shooterObj)
     return out;
 }
 
+Shooter::~Shooter()
+{
+    for (size_t i = 0; i < rolls.size(); i++)
+    {
+        delete rolls[i];
+    }
+}
 // Shooter::~Shooter()
 // {}
 /*--Shooter Deconstructor Issues--
