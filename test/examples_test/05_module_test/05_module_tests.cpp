@@ -40,7 +40,7 @@ TEST_CASE("Question 3: Test that shooter returns a roll & roll result between 2-
 		Shooter shootObj;
 		Die die1; die1.roll();
 		Die die2; die2.roll();
-		std::unique_ptr<Roll> rollPtr;
+		Roll* rollPtr;
 
 		rollPtr = shootObj.throw_die(die1, die2);
 
