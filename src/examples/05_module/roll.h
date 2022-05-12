@@ -7,6 +7,7 @@ public:
     Roll (Die& d1, Die& d2) : die1{d1}, die2{d2}{};
     void roll_die();
     int roll_value()const{return value;}
+    void set_value(int new_value){value = new_value;} // Method only used for Test Cases
 
 private:
     Die& die1;
