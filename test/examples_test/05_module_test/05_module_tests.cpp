@@ -4,8 +4,8 @@
 #include "roll.h"
 #include "shooter.h"
 #include "phase.h"
-#include "point_phase.h"
 #include "come_out_phase.h"
+#include "point_phase.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -50,7 +50,6 @@ TEST_CASE("Question 3: Test that shooter returns a roll & roll result between 2-
 		REQUIRE( true == (  (rollPtr->roll_value() >= 2) && (rollPtr->roll_value() <= 12)  ) );
 	}
 }
-
 
 TEST_CASE("Question 4: Test that ComeOutPhase get_outcome returns natural/craps/point")
 {

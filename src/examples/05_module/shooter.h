@@ -11,7 +11,6 @@ class Shooter
 public:
     Roll* throw_die(Die&, Die&);
     friend std::ostream& operator<<(std::ostream&, const Shooter&);
-    //~Shooter();  -- ** See notes on why this is commented out in shooter.cpp **
     ~Shooter();
 private:
     std::vector<Roll*> rolls;

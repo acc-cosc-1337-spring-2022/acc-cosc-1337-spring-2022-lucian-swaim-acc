@@ -37,7 +37,7 @@ int main()
     PointPhase point_phase(point);
 
     /*
-    while ( (point_phase.get_outcome(roll) == Phase::RollOutcome::point) || (point_phase.get_outcome(roll) == Phase::RollOutcome::nopoint) )
+    while ( (point_phase.get_outcome(roll) == RollOutcome::point) || (point_phase.get_outcome(roll) == RollOutcome::nopoint) )
     
     The directions say to use the above loop condition ^ for the Point Phase,
     but by my understanding of the rules of Craps,
