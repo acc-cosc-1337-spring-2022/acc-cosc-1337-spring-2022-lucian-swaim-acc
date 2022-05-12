@@ -20,11 +20,16 @@ std::ostream& operator<<(std::ostream& out, const Shooter& shooterObj)
     return out;
 }
 
-// Shooter::~Shooter()
-// {
-//     for (size_t i=0; i < rolls.size(); i++)
-//     {
-//         Roll* rollRef = rolls.at(i);
-//         delete rollRef;
-//     }
-// }
+Shooter::~Shooter()
+{
+    // for (size_t i=0; i < rolls.size(); i++)
+    // {
+    //     Roll* rollRef = rolls.at(i);
+    //     delete rollRef;
+    // }
+    for (std::vector<Roll *>::iterator i = rolls.begin(); i != rolls.end(); ++i) 
+    {
+        delete *i;
+    }
+    rolls.clear();
+}
