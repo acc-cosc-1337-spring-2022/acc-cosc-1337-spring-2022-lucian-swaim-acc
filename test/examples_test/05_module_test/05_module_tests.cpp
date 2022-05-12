@@ -114,7 +114,7 @@ TEST_CASE("Question 4: Test that PointPhase get_outcome returns point/seven_out/
 	REQUIRE ( pt_phase.get_outcome(rollPtr) == Phase::RollOutcome::seven_out );
 
 	// Check for all no points
-	for (int i=2; i < 12; i++)
+	for (int i=2; i <= 12; i++)
 	{
 		rollPtr->set_value(i);
 		if (i != 9 && i != 7)
