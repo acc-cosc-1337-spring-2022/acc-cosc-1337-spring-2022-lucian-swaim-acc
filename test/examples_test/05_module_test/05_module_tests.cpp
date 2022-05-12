@@ -36,6 +36,7 @@ TEST_CASE("Question 2: Roll class 2 to 12 range checking")
 	}
 }
 
+
 TEST_CASE("Question 3: Test that shooter returns a roll & roll result between 2-12")
 {
 	for (int i = 0; i < 10; i++)
