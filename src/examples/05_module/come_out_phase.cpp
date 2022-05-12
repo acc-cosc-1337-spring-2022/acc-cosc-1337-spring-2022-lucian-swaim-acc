@@ -1,17 +1,17 @@
 #include "come_out_phase.h"
 
-Phase::RollOutcome ComeOutPhase::get_outcome(Roll* roll)
+RollOutcome ComeOutPhase::get_outcome(Roll* roll)
 {
     if ((roll->roll_value() == 7) || (roll->roll_value() == 11))
     {
-        return Phase::RollOutcome::natural;
+        return RollOutcome::natural;
     }
     else if ((roll->roll_value() == 2) || (roll->roll_value() == 3) || (roll->roll_value() == 12))
     {
-        return Phase::RollOutcome::craps;
+        return RollOutcome::craps;
     }
     else
     {
-        return Phase::RollOutcome::point;
+        return RollOutcome::point;
     }
 }

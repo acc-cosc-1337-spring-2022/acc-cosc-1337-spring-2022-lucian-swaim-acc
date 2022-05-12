@@ -63,33 +63,33 @@ TEST_CASE("Question 4: Test that ComeOutPhase get_outcome returns natural/craps/
 	ComeOutPhase co_phase;
 	//Natural
 	rollPtr->set_value(7);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::natural );
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::natural );
 	rollPtr->set_value(11);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::natural );
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::natural );
 
 	//Craps
 	rollPtr->set_value(2);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::craps );
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::craps );
 	rollPtr->set_value(3);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::craps );
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::craps );
 	rollPtr->set_value(12);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::craps );	
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::craps );	
 
 	//Point
 	rollPtr->set_value(1);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::point );
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::point );
 	rollPtr->set_value(4);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::point );
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::point );
 	rollPtr->set_value(5);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::point );	
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::point );	
 	rollPtr->set_value(6);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::point );	
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::point );	
 	rollPtr->set_value(8);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::point );	
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::point );	
 	rollPtr->set_value(9);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::point );	
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::point );	
 	rollPtr->set_value(10);
-	REQUIRE ( co_phase.get_outcome(rollPtr) == Phase::RollOutcome::point );	
+	REQUIRE ( co_phase.get_outcome(rollPtr) == RollOutcome::point );	
 
 	delete rollPtr;
 }
@@ -103,23 +103,23 @@ TEST_CASE("Question 4: Test that PointPhase get_outcome returns point/seven_out/
 	Roll* rollPtr = new Roll(die1, die2);
 
 
-	PointPhase pt_phase(9);
+	PointPhase pt_phase(9); // Setting 9 to the point number for this test case 
 	
 	// Check for point
 	rollPtr->set_value(9);
-	REQUIRE ( pt_phase.get_outcome(rollPtr) == Phase::RollOutcome::point );
+	REQUIRE ( pt_phase.get_outcome(rollPtr) == RollOutcome::point );
 
 	// Check for 7 (seven_out)
 	rollPtr->set_value(7);
-	REQUIRE ( pt_phase.get_outcome(rollPtr) == Phase::RollOutcome::seven_out );
+	REQUIRE ( pt_phase.get_outcome(rollPtr) == RollOutcome::seven_out );
 
 	// Check for all no points
 	for (int i=2; i <= 12; i++)
 	{
 		rollPtr->set_value(i);
-		if (i != 9 && i != 7)
+		if (i != 9 && i != 7) 
 		{
-			REQUIRE( pt_phase.get_outcome(rollPtr) == Phase::RollOutcome::nopoint );
+			REQUIRE( pt_phase.get_outcome(rollPtr) == RollOutcome::nopoint );
 		}
 	}
 

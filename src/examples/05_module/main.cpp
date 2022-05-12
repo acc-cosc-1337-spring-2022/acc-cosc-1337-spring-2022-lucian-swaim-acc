@@ -22,7 +22,7 @@ int main()
 
     ComeOutPhase come_out_phase;
 
-    while ( (come_out_phase.get_outcome(roll) == Phase::RollOutcome::natural) || (come_out_phase.get_outcome(roll) == Phase::RollOutcome::craps) )
+    while ( (come_out_phase.get_outcome(roll) == RollOutcome::natural) || (come_out_phase.get_outcome(roll) == RollOutcome::craps) )
     {
         cout << "Rolled " << roll->roll_value() << " roll again\n";
         roll = shooter.throw_die(die1, die2);
@@ -36,7 +36,14 @@ int main()
 
     PointPhase point_phase(point);
 
+    /*
     while ( (point_phase.get_outcome(roll) == Phase::RollOutcome::point) || (point_phase.get_outcome(roll) == Phase::RollOutcome::nopoint) )
+    
+    The directions say to use the above loop condition ^ for the Point Phase,
+    but by my understanding of the rules of Craps,
+    the loop condition below is how the game SHOULD run for the Point Phase.
+    */
+    while ( (point_phase.get_outcome(roll) == RollOutcome::nopoint) )
     {
         cout << "Rolled " << roll->roll_value() << " roll again\n";
         roll = shooter.throw_die(die1, die2);

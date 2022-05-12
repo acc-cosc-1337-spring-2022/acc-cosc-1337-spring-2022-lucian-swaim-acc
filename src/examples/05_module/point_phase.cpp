@@ -5,18 +5,18 @@ PointPhase::PointPhase(int p)
     point = p;
 }
 
-Phase::RollOutcome PointPhase::get_outcome(Roll* roll)
+RollOutcome PointPhase::get_outcome(Roll* roll)
 {   
     if (roll->roll_value() == point)
     {
-        return Phase::RollOutcome::point;
+        return RollOutcome::point;
     }
     else if (roll->roll_value() == 7)
     {
-        return Phase::RollOutcome::seven_out;
+        return RollOutcome::seven_out;
     }
     else
     {
-        return Phase::RollOutcome::nopoint;
+        return RollOutcome::nopoint;
     }
 }
