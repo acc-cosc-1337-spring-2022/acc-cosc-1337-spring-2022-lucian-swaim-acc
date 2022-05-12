@@ -102,15 +102,6 @@ TEST_CASE("Question 4: Test that PointPhase get_outcome returns point/seven_out/
 	die2.roll();
 	Roll* rollPtr = new Roll(die1, die2);
 
-	for (int i=0; i< 10; i++)
-	{
-	rollPtr->roll_die();
-	PointPhase pt_phase(i);
-	REQUIRE(  
-		true == 
-		( (pt_phase.get_outcome(rollPtr) == Phase::RollOutcome::point) || (pt_phase.get_outcome(rollPtr) == Phase::RollOutcome::seven_out) || (pt_phase.get_outcome(rollPtr) == Phase::RollOutcome::nopoint) )  
-		);
-	}
 
 	PointPhase pt_phase(9);
 	
@@ -125,6 +116,7 @@ TEST_CASE("Question 4: Test that PointPhase get_outcome returns point/seven_out/
 	// Check for all no points
 	for (int i=2; i < 12; i++)
 	{
+		rollPtr->set_value(i);
 		if (i != 9 && i != 7)
 		{
 			REQUIRE( pt_phase.get_outcome(rollPtr) == Phase::RollOutcome::nopoint );
