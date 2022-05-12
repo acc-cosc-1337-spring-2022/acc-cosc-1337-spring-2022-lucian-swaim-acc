@@ -6,7 +6,7 @@ std::unique_ptr<Roll> Shooter::throw_die(Die& d1, Die& d2)
 
     rollObj->roll_die();
 
-    rolls.push_back(rollObj);
+    rolls.push_back(std::move(rollObj));
 
     return rollObj;
 }
