@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <memory>
 
 #include "roll.h"
 
@@ -9,11 +10,11 @@
 class Shooter
 {
 public:
-    Roll* throw_die(Die&, Die&);
+    std::unique_ptr<Roll> throw_die(Die&, Die&);
     friend std::ostream& operator<<(std::ostream&, const Shooter&);
-    ~Shooter();
+    //~Shooter();
 private:
-    std::vector<Roll*> rolls;
+    std::vector<std::unique_ptr<Roll>> rolls;
 };
 
 #endif

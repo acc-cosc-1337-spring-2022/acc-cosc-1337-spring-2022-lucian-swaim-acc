@@ -1,8 +1,8 @@
 #include "shooter.h"
 
-Roll* Shooter::throw_die(Die& d1, Die& d2)
+std::unique_ptr<Roll> Shooter::throw_die(Die& d1, Die& d2)
 {
-    Roll* rollObj = new Roll(d1, d2);
+    std::unique_ptr<Roll> rollObj = std::make_unique<Roll>(d1, d2);
 
     rollObj->roll_die();
 
@@ -20,16 +20,11 @@ std::ostream& operator<<(std::ostream& out, const Shooter& shooterObj)
     return out;
 }
 
-Shooter::~Shooter()
-{
-    // for (size_t i=0; i < rolls.size(); i++)
-    // {
-    //     Roll* rollRef = rolls.at(i);
-    //     delete rollRef;
-    // }
-    for (std::vector<Roll *>::iterator i = rolls.begin(); i != rolls.end(); ++i) 
-    {
-        delete *i;
-    }
-    rolls.clear();
-}
+// Shooter::~Shooter()
+// {
+//     // for (size_t i=0; i < rolls.size(); i++)
+//     // {
+//     //     Roll* rollRef = rolls.at(i);
+//     //     delete rollRef;
+//     // }
+// }
