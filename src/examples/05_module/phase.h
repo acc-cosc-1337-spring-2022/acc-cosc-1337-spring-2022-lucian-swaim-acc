@@ -6,6 +6,6 @@ class Phase
 {
 public:
     enum class RollOutcome {natural, craps, point, seven_out, nopoint};
-    virtual RollOutcome get_outcome(Roll* roll);
+    virtual RollOutcome get_outcome(Roll* roll){};
 };
 #endif
